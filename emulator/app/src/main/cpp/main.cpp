@@ -1134,7 +1134,7 @@ void close_floppy_disk(int drv) {
 
 extern "C" {
 JNIEXPORT void JNICALL
-Java_com_shikarunochi_emulator_GameDialogActivity_fileSelectCallback(JNIEnv *env, jobject thiz,
+Java_com_shikarunochi_emulator_EmulatorActivity_fileSelectCallback(JNIEnv *env, jobject thiz,
                                                                      jint id) {
     LOGI("fileSelectCallback %d", id);
     if (fileList.size() < id) {
@@ -1204,7 +1204,7 @@ Java_com_shikarunochi_emulator_GameDialogActivity_fileSelectCallback(JNIEnv *env
 
 extern "C" {
 JNIEXPORT void JNICALL
-Java_com_shikarunochi_emulator_GameDialogActivity_bankSelectCallback(JNIEnv *env, jobject thiz,
+Java_com_shikarunochi_emulator_EmulatorActivity_bankSelectCallback(JNIEnv *env, jobject thiz,
                                                                      jint id) {
 
     LOGI("bankSelectCallback %d", id);
@@ -1224,7 +1224,7 @@ Java_com_shikarunochi_emulator_GameDialogActivity_bankSelectCallback(JNIEnv *env
 
 extern "C" {
 JNIEXPORT void JNICALL
-Java_com_shikarunochi_emulator_GameDialogActivity_bootSelectCallback(JNIEnv *env, jobject thiz,
+Java_com_shikarunochi_emulator_EmulatorActivity_bootSelectCallback(JNIEnv *env, jobject thiz,
                                                                      jint id) {
     if (id < 0) {
         return;
@@ -1241,7 +1241,7 @@ Java_com_shikarunochi_emulator_GameDialogActivity_bootSelectCallback(JNIEnv *env
 
 extern "C" {
 JNIEXPORT void JNICALL
-Java_com_shikarunochi_emulator_GameDialogActivity_exitSelectCallback(JNIEnv *env, jobject thiz,
+Java_com_shikarunochi_emulator_EmulatorActivity_exitSelectCallback(JNIEnv *env, jobject thiz,
                                                                      jint id) {
     if (id < 0) {
         return;
