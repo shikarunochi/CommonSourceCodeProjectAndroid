@@ -1,0 +1,80 @@
+set(HEADER  common.h
+		config.h
+		fifo.h
+		fileio.h
+		emu.h
+		Android/osd.h
+vm/and.h
+vm/datarec.h
+vm/debugger.h
+vm/device.h
+vm/disk.h
+vm/event.h
+vm/i8253.h
+vm/i8255.h
+vm/io.h
+vm/mb8877.h
+vm/mz1p17.h
+vm/noise.h
+vm/not.h
+vm/pcm1bit.h
+vm/prnfile.h
+vm/sn76489an.h
+vm/vm.h
+vm/vm_template.h
+vm/z80.h
+vm/z80pio.h
+vm/z80sio.h
+vm/mz700/cmos.h
+vm/mz700/emm.h
+vm/mz700/floppy.h
+vm/mz700/kanji.h
+vm/mz700/keyboard.h
+vm/mz700/memory.h
+vm/mz700/mz700.h
+vm/mz700/psg.h
+vm/mz700/quickdisk.h
+vm/mz700/ramfile.h
+        )
+
+add_library(native-activity SHARED main.cpp
+        ${HEADER}
+		common.cpp
+		config.cpp
+		fifo.cpp
+		fileio.cpp
+		emu.cpp
+		Android/osd.cpp
+		Android/osd_input.cpp
+		Android/osd_screen.cpp
+		Android/osd_sound.cpp
+vm/and.cpp
+vm/datarec.cpp
+vm/disk.cpp
+vm/event.cpp
+vm/i8253.cpp
+vm/i8255.cpp
+vm/io.cpp
+vm/mb8877.cpp
+#vm/mz1p17.cpp
+vm/noise.cpp
+vm/not.cpp
+vm/pcm1bit.cpp
+vm/prnfile.cpp
+vm/sn76489an.cpp
+vm/z80.cpp
+vm/z80pio.cpp
+vm/z80sio.cpp
+vm/mz700/cmos.cpp
+vm/mz700/emm.cpp
+vm/mz700/floppy.cpp
+vm/mz700/kanji.cpp
+vm/mz700/keyboard.cpp
+vm/mz700/memory.cpp
+vm/mz700/mz700.cpp
+vm/mz700/psg.cpp
+vm/mz700/quickdisk.cpp
+vm/mz700/ramfile.cpp
+        )
+
+

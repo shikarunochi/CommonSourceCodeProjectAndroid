@@ -1,0 +1,66 @@
+set(HEADER  common.h
+		config.h
+		fifo.h
+		fileio.h
+		emu.h
+		Android/osd.h
+vm/ay_3_891x.h
+vm/debugger.h
+vm/device.h
+vm/disk.h
+vm/event.h
+vm/i8251.h
+vm/i8253.h
+vm/i8255.h
+vm/noise.h
+vm/pc80s31k.h
+vm/pcm1bit.h
+vm/prnfile.h
+vm/upd1990a.h
+vm/upd765a.h
+vm/vm.h
+vm/vm_template.h
+vm/z80.h
+vm/fmgen/diag.h
+vm/fmgen/fmgen.h
+vm/fmgen/fmgeninl.h
+vm/fmgen/fmtimer.h
+vm/fmgen/headers.h
+vm/fmgen/misc.h
+vm/fmgen/opna.h
+vm/fmgen/psg.h
+vm/pc8801/pc88.h
+vm/pc8801/pc8801.h
+        )
+
+add_library(native-activity SHARED main.cpp
+        ${HEADER}
+		common.cpp
+		config.cpp
+		fifo.cpp
+		fileio.cpp
+		emu.cpp
+		Android/osd.cpp
+		Android/osd_input.cpp
+		Android/osd_screen.cpp
+		Android/osd_sound.cpp
+vm/ay_3_891x.cpp
+vm/disk.cpp
+vm/event.cpp
+vm/i8251.cpp
+vm/i8253.cpp
+vm/i8255.cpp
+vm/noise.cpp
+vm/pc80s31k.cpp
+vm/pcm1bit.cpp
+vm/prnfile.cpp
+vm/upd1990a.cpp
+vm/upd765a.cpp
+vm/z80.cpp
+vm/fmgen/fmgen.cpp
+vm/fmgen/fmtimer.cpp
+vm/fmgen/opna.cpp
+vm/fmgen/psg.cpp
+vm/pc8801/pc88.cpp
+vm/pc8801/pc8801.cpp
+        )
