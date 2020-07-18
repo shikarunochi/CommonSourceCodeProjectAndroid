@@ -80,6 +80,17 @@ android {
                 }
             }
         }
+        x1twin {
+            dimension "machine"
+            applicationIdSuffix ".x1twin"
+            versionNameSuffix "-x1twin"
+            applicationId 'com.shikarunochi.emulator'
+            externalNativeBuild {
+                cmake {
+                    arguments "-D_X1TWIN=1"
+                }
+            }
+        }
         mz80k {
             dimension "machine"
             applicationIdSuffix ".mz80k"
@@ -135,6 +146,28 @@ android {
                 }
             }
         }
+        pc6001mk2 {
+            dimension "machine"
+            applicationIdSuffix ".pc6001mk2"
+            versionNameSuffix "-pc6001mk2"
+            applicationId 'com.shikarunochi.emulator'
+            externalNativeBuild {
+                cmake {
+                    arguments "-D_PC6001MK2=1"
+                }
+            }
+        }
+        pc6001 {
+            dimension "machine"
+            applicationIdSuffix ".pc6001"
+            versionNameSuffix "-pc6001"
+            applicationId 'com.shikarunochi.emulator'
+            externalNativeBuild {
+                cmake {
+                    arguments "-D_PC6001=1"
+                }
+            }
+        }
         pc8801ma {
             dimension "machine"
             applicationIdSuffix ".pc8801ma"
@@ -168,6 +201,18 @@ android {
                 }
             }
         }
+        pyuta {
+            dimension "machine"
+            applicationIdSuffix ".pyuta"
+            versionNameSuffix "-pyuta"
+            applicationId 'com.shikarunochi.emulator'
+            externalNativeBuild {
+                cmake {
+                    arguments "-D_PYUTA=1"
+                }
+            }
+        }
+
     }
     externalNativeBuild {
         cmake {

@@ -41,6 +41,7 @@ bool softKeyShift = false;
 bool softKeyCtrl = false;
 
 int softKeyCode = 0;
+bool softKeyDelayFlag = false;
 
 ScreenSize screenSize = SCREEN_SIZE_JUST;
 ScreenSize preScreenSize = SCREEN_SIZE_JUST;
@@ -806,9 +807,12 @@ static int32_t engine_handle_input(struct android_app *app, AInputEvent *event) 
                     } else if (code == 113) {
                         softKeyCtrl = true;
                     } else {
+                        //ここでは shift / ctrl 押下のみ行い、キー入力自体はメインループ内で行っています。
+                        //同時処理だと、 shift / ctrl を拾えない機種があったので。
                         if (softKeyCtrl == true) {
                             emu->get_osd()->key_down(113, false, false);
-                            emu->get_osd()->key_down(softKeyCode, false, false);
+                            softKeyDelayFlag = true;
+                            //emu->get_osd()->key_down(softKeyCode, false, false);
                             softKeyboardCount = SOFT_KEYBOARD_KEEP_COUNT;
                         }
                         if (softKeyShift == true) {
@@ -819,7 +823,8 @@ static int32_t engine_handle_input(struct android_app *app, AInputEvent *event) 
                             } else {
                                 softKeyShift = false;
                             }
-                            emu->get_osd()->key_down(softKeyCode, false, false);
+                            softKeyDelayFlag = true;
+                            //emu->get_osd()->key_down(softKeyCode, false, false);
                             softKeyboardCount = SOFT_KEYBOARD_KEEP_COUNT;
                         } else {
                             softKeyCode = usKeytoJISKey[code][0];
@@ -829,7 +834,8 @@ static int32_t engine_handle_input(struct android_app *app, AInputEvent *event) 
                             } else {
                                 softKeyShift = false;
                             }
-                            emu->get_osd()->key_down(softKeyCode, false, false);
+                            softKeyDelayFlag = true;
+                            //emu->get_osd()->key_down(softKeyCode, false, false);
                         }
                         softKeyboardCount = SOFT_KEYBOARD_KEEP_COUNT;
                     }
@@ -1620,6 +1626,11 @@ void android_main(struct android_app *state) {
 
         }
 
+        if(softKeyDelayFlag == true){
+            emu->get_osd()->key_down(softKeyCode, false, false);
+            softKeyDelayFlag = false;
+        }
+
         if (engine.animating && needDraw) {
             engine_draw_frame(&engine);
             needDraw = false;
@@ -1637,9 +1648,10 @@ void android_main(struct android_app *state) {
                     softKeyCtrl = false;
                     softKeyCode = 0;
                 } else {
-                    //機種によってはしばらくの間keyDownを送り続ける必要がある
+
 #if defined(_MZ700)
-                    emu->get_osd()->key_down(softKeyCode,false,false);
+                    //機種によってはしばらくの間keyDownを送り続ける必要がある…と思ったけど、やらなくても大丈夫でした。
+                    //emu->get_osd()->key_down(softKeyCode,false,false);
 #endif
                 }
             }

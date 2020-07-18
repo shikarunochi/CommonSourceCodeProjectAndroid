@@ -29,56 +29,56 @@ add_library(native_app_glue STATIC
 
 if(_SC3000)
 	include(_SC3000.txt)
-	# now build app's shared lib
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -Wall -D_SC3000 -D_Android -D_RGB565")
 elseif(_MZ700)
 	include(_MZ700.txt)
-	# now build app's shared lib
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -Wall -D_MZ700 -D_Android -D_RGB565")
 elseif(_MZ1500)
 	include(_MZ1500.txt)
-	# now build app's shared lib
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -Wall -D_MZ1500 -D_Android -D_RGB565")
 elseif(_X1)
 	include(_X1.txt)
-	# now build app's shared lib
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -Wall -D_X1 -D_Android -D_HAS_TENKEY -D_RGB565")
+elseif(_X1TWIN)
+	include(_X1TWIN.txt)
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -Wall -D_X1TWIN -D_Android -D_HAS_TENKEY -D_RGB565")
 elseif(_X1TURBO)
 	include(_X1TURBO.txt)
-	# now build app's shared lib
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -Wall -D_X1TURBO -D_Android -D_HAS_TENKEY -D_RGB565")
 elseif(_MZ80K)
 	include(_MZ80K.txt)
-	# now build app's shared lib
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -Wall -D_MZ80K -D_Android -D_RGB565")
 elseif(_MZ80B)
 	include(_MZ80B.txt)
-	# now build app's shared lib
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -Wall -D_MZ80B -D_Android -D_RGB565")
 elseif(_MZ2200)
 	include(_MZ2200.txt)
-	# now build app's shared lib
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -Wall -D_MZ2200 -D_Android -D_HAS_TENKEY -D_RGB565")
 elseif(_MSX2P)
 	include(_MSX2P.txt)
-	# now build app's shared lib
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -Wall -D_MSX2P -D_MSX_VDP_MESS -D_Android -D_RGB565")
 elseif(_PC8001)
 	include(_PC8001.txt)
-	# now build app's shared lib
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -Wall -D_PC8001 -D_Android -D_HAS_TENKEY -D_RGB565 -Wno-narrowing")
+elseif(_PC6001MK2)
+	include(_PC6001MK2.txt)
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -Wall -D_PC6001MK2 -D_Android -D_RGB565")
+elseif(_PC6001)
+	include(_PC6001.txt)
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -Wall -D_PC6001 -D_Android -D_RGB565")
+
 elseif(_PC8801MA)
 	include(_PC8801MA.txt)
-	# now build app's shared lib
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -Wall -D_PC8801MA -D_Android -D_HAS_TENKEY -D_RGB565 -Wno-narrowing")
 elseif(_FM7)
 	include(_FM7.txt)
-	# now build app's shared lib
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -Wall -D_FM7 -D_Android -D_HAS_TENKEY -D_RGB565")
 elseif(_FM77L2)
 	include(_FM77L2.txt)
-	# now build app's shared lib
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -Wall -D_FM77L2 -D_Android -D_HAS_TENKEY -D_RGB565")
+elseif(_PYUTA)
+	include(_PYUTA.txt)
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -Wall -D_PYUTA -D_Android -D_RGB565")
 
 endif()
 
